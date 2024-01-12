@@ -1,4 +1,4 @@
-var express = require("express");
+var express = require('express');
 var usersRouter = require('./users');
 
 var app = express();
@@ -7,8 +7,13 @@ app.use(express.json());
 
 app.use('/users', usersRouter);
 
+app.get('/health', async function(request, response) {
+  // Respond with the users array
+  response.json(users)
+})
+
 app.listen(3000, function() {
-  console.log("App listening on port 3000");
+  console.log('App listening on port 3000');
 })
 
 module.exports = app;
