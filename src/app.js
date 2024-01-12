@@ -8,8 +8,7 @@ app.use(express.json());
 app.use('/users', usersRouter);
 
 app.get('/health', async function(request, response) {
-  // Respond with the users array
-  response.json(users)
+  response.json({ status: 'healthy' });
 })
 
 app.listen(3000, function() {
